@@ -1,16 +1,12 @@
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        nums.sort(reverse = True)
-        cnt = 1
-        Max = nums[0]
-        curr = Max
-        for i in nums[1:]:
-            if i != curr:
-                cnt += 1
-                curr = i
-            if cnt == 3:
-                break
-        if cnt == 3:
-            return curr
-        else:
-            return Max
+        v = [float(-inf), float(-inf), float(-inf)]
+        for num in nums:
+            if num not in v:
+                if num > v[0]:
+                    v = [num, v[0], v[1]]
+                elif num > v[1]:
+                    v = [v[0], num, v[1]]
+                elif num > v[2]:
+                    v = [v[0], v[1], num]
+        return v[2] if v[2] != float(-inf) else v[0]
