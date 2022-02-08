@@ -5,7 +5,6 @@ class Solution:
         Max = nums[0]
         curr = Max
         for i in nums[1:]:
-            print(i, curr)
             if i != curr:
                 cnt += 1
                 curr = i
