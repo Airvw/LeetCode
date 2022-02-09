@@ -1,15 +1,23 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        s = "!" + s
-        t = "!" + t
+        i = 0
+        j = 0
         n = len(t)
         m = len(s)
-        dp = [[0] * m for _ in range(n)]
-        for i in range(n):
-            dp[i][0] = 1
-        for i,j in product(range(1, n), range(1, m)):
-            if s[j] == t[i]:
-                dp[i][j] = dp[i - 1][j - 1]
-            elif s[j] != t[i]:
-                dp[i][j] = dp[i - 1][j]
-        return dp[-1][-1]
+        if m == 0:
+            return True
+        if n == 0:
+            return False
+        
+        while True:
+            if s[i] == t[j]:
+                i += 1
+                j += 1
+            else:
+                j += 1
+            if i == m:
+                return True
+            if j == n:
+                break
+        return False
+                
