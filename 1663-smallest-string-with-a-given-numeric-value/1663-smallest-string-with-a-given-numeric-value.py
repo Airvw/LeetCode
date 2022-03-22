@@ -6,6 +6,6 @@ class Solution:
         while k > 0:
             n -= 1
             answer[n] = chr(ord(answer[n]) + min(25, k))
-            k -= 25
+            k -= min(25, k)
         
         return ''.join(answer)
