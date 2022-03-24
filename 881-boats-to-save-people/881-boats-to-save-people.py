@@ -8,7 +8,7 @@ class Solution:
             if hap > limit:
                 j -= 1
                 answer += 1
-            elif hap <= limit:
+            else:
                 answer += 1
                 i += 1
                 j -= 1
