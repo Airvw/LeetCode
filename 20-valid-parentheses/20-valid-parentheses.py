@@ -5,8 +5,8 @@ class Solution:
         for c in s:
             if c in d:
                 st.append(c)
-            elif not st or d[st.pop()] != c:
+            elif len(st) == 0 or d[st.pop()] != c:
                 return False
             
                
-        return not st 
+        return len(st) == 0
