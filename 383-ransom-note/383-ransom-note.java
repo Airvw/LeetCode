@@ -8,11 +8,8 @@ class Solution {
         }
         
         for(int i = 0; i < ransomNote.length(); i++){
-            alpha[ransomNote.charAt(i) - 'a']--;
-        }
-        
-        for(int num : alpha){
-            if(num < 0) return false;
+            if(--alpha[ransomNote.charAt(i) - 'a'] < 0)
+                return false;
         }
         
         return true;
