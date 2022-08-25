@@ -1,15 +1,11 @@
 class Solution {
-    int[] dp = new int[32];
     public boolean isPowerOfThree(int n) {
-        if(n == 1){
-            return true;
+        int limit = 1;
+        for(int i = 1; i < 32; i++){
+            
+            if(limit * 3 < 0) break;
+            limit *= 3;
         }
-        dp[0] = 1;
-        for (int i = 1; i < 32; i++) {
-            dp[i] = dp[i - 1] * 3;
-            if (dp[i] == n) return true;
-            if (dp[i] > n) return false;
-        }
-        return false;
+        return n > 0 && limit % n == 0;
     }
 }
