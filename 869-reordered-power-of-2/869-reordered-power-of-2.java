@@ -3,7 +3,6 @@ import java.util.Arrays;
 class Solution {
     public boolean reorderedPowerOf2(int n) {
         int[] numArr = count(n);
-
         for(int i = 0; i < 31; i++){
             if(Arrays.equals(numArr, count(1 << i))){
                 return true;
