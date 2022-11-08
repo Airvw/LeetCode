@@ -1,22 +1,13 @@
 class Solution {
     public String makeGood(String s) {
         Deque<Character> dq = new ArrayDeque<>();
-        int i = 0;
-        while(i < s.length()){
-            if(dq.size() < 1){
-                dq.add(s.charAt(i));
+        for(char ch : s.toCharArray()){
+            if(!dq.isEmpty() && dq.peekLast() != ch && Character.toUpperCase(dq.peekLast()) == Character.toUpperCase(ch)){
+                dq.pollLast();
             }
             else{
-                char a = dq.peekLast();
-                char b = s.charAt(i);
-                if(a != b && Character.toUpperCase(a) == Character.toUpperCase(b)){
-                    dq.pollLast();
-                }
-                else{
-                    dq.add(b);
-                }
+                dq.add(ch);
             }
-            i++;
         }
         StringBuilder sb = new StringBuilder();
         while(!dq.isEmpty())
